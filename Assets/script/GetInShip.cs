@@ -17,16 +17,25 @@ public class GetInShip : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown("f")){
+        if(Input.GetKeyDown("f") && inShip == false){
             InShip();
+        }
+
+        if(Input.GetKeyDown("f") && inShip == true){
+            OutShip();
         }
     }
 
     public void InShip(){
-        print("getting in ship");
         inShip = true;
         ship.SetActive(true);
         player.SetActive(false);
+    }
+
+    public void OutShip(){
+        inShip = false;
+        ship.SetActive(false);
+        player.SetActive(true);
     }
 
 }
